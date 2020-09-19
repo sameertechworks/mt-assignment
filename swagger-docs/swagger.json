@@ -1,0 +1,67 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "User API",
+        "description": "",
+        "version": "1.0"
+    },
+    "produces": [
+        "application/json"
+    ],
+    "tags": [
+        {
+            "name": "User",
+            "description": ""
+        }
+    ],
+    "securityDefinitions": 
+        {
+            "Bearer": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            }
+        },
+    "host": "localhost:8082",
+    "basePath": "/api",
+    "paths": {
+        "/users/{userId}": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "description": "Get user by Id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "required": true,
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Invalid input"
+                    },
+                    "200": {
+                        "description": "Success"
+                    }
+                }
+            }
+        }
+    }
+}
